@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <body>
+        <h1>Hola alumnos</h1>
+        <br>
+        {% for x in Datos %}
+            {{ x.rut }} {{ x.nombre }} {{x.email}} <br>
+            <button type="button">
+                <a href="{% url 'lista_action' pk=x.rut action='add' %}">Agregar</a>
+            </button>
+            <button type="button">
+                <a href="{% url 'lista_action' pk=x.rut action='delete' %}">Eliminar</a>
+            </button>
+            <button type="button">
+                <a href="{% url 'lista_action' pk=x.rut action='edit' %}">Editar</a>
+            </button>
+        {% endfor %}
+        
+        {% if action == 'delete' %}
+            <h2>¿Estás seguro de que deseas eliminar este elemento?</h2>
+            <p>{{ objeto }}</p>
+            <form method="post">
+                {% csrf_token %}
+                <button type="submit">Confirmar</button>
+                <a href="{% url 'lista' %}">Cancelar</a>
+            </form>
+        {% elif action == 'edit' %}
+            <h2>Editar Datos</h2>
+            <form method="post">
+                {% csrf_token %}
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" value="{{ objeto.nombre }}">
+                <!-- Añade más campos aquí según tu modelo -->
+                <button type="submit">Guardar cambios</button>
+            </form>
+        {% elif action == 'edit' %}
+            <h2>Agregar Datos</h2>
+            <form method="post">
+                {% csrf_token %}
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" value="{{ objeto.nombre }}">
+                <!-- Añade más campos aquí según tu modelo -->
+                <button type="submit">Guardar Datos</button>
+            </form>    
+        {% endif %}
+    </body>
+   

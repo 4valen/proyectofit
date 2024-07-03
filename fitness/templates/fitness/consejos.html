@@ -1,3 +1,4 @@
+{% extends 'fitness/layout.html' %}
 {%load static %}
 <!DOCTYPE html>
 <html lang="en">
@@ -12,50 +13,7 @@
 </head>
 <body>
    
-    <nav class="navbar navbar-expand-lg bg-body-tertiary" style="background-color: #006D83;">
-
-        <div class="container-fluid" >
-
-          
-
-          <div class="collapse navbar-collapse" id="navbarNav" >
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link active"  href="index.html"  > <p id="paranav">Inicio</p></a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                      <span class="navbar-toggler-icon"></span>
-                    </button>
-                  </li>
-
-              <li class="nav-item">
-                <a class="nav-link active"  href="categoria.html"  > <p id="paranav">Categoria</p></a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                  <span class="navbar-toggler-icon"></span>
-                </button>
-              </li>
-
-                <a class="nav-link active" aria-current="page" href="Registro.html"> <p id="paranav" >Registro</p></a>
-              </li>
-             
-              <li class="nav-item">
-                <a class="nav-link" href="login.html"><p id="paranav" >Login</p></a>
-              </li>
-
-              <li class="nav-item">
-                <a class="nav-link" href="consejos.html"><p id="paranav" >Sugerencias y consejos</p></a>
-              </li>
-
-              <li class="nav-item">
-                <a class="nav-link" href="generacion.html"><p id="paranav" >Rutina por generación</p></a>
-              </li>
-
-             
-            </ul>
-          </div>
-        </div>
-      </nav>
-            
-
+   {%block content%}
 
     <div class="container text-center">
        
@@ -65,7 +23,7 @@
     <div class="container text-center">
         <div class="card">
           <figure>
-                <img src="img/brocoli.jpg" alt=""    
+                <img src="{%static 'fitness/img/alimento_sano.jpg'%}" alt=""    
                 width: 562px;
                 height: 312px;>
             </figure>
@@ -89,7 +47,7 @@
     <div class="container text-center">
         <div class="card">
           <figure>
-                <img src="img/deportes.jpg" alt=""    
+                <img src="{%static 'fitness/img/imagechico.jpg'%}" alt=""    
                 width: 562px;
                 height: 312px;>
             </figure>
@@ -110,7 +68,7 @@
     <div class="container text-center">
             <div class="card">
                 <figure>
-                    <img src="img/bajar de peso.jpg" alt=""    
+                    <img src="{%static 'fitness/img/rubia.jpg'%}" alt=""    
                     width: 562px;
                     height: 312px;>
                 </figure>
@@ -142,5 +100,4 @@
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
     
-</body>
-</html>
+    {%endblock%}
